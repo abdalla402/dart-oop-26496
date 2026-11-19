@@ -37,6 +37,15 @@ This is needed because `_balance` and `fare` are `int` values in Dart.
 
 ## Part 4: Bug table
 
+| Bug | The line | Why it is wrong (your words) | Your fix |
+| :--- | :--- | :--- | :--- |
+| 1 | `String _brand;` and `int _battery;` | Non-nullable fields must be given an initial value when declared. | Changed to `String _brand = '';` and `int _battery = 0;` |
+| 2 | `SmartPhone (String brand, int battery, String system) {` | The child constructor did not call the parent constructor to initialize `_brand` and `_battery`. | Added `: super(brand, battery)` |
+| 3 | `String system = '';` (used as `_system`) | The field was declared without an underscore (`system`), while the constructor and `restart()` used `_system`. | Renamed the field to `String _system = '';` |
+| 4 | `@override` above `void restart()` | `@override` can only be used if the parent class (`Phone`) already has a `restart()` method. | Removed `@override` |
+| 5 | `p.battery = 100;` and `print(p.battery());` | `battery` had no setter to assign `100`, and `battery` is a getter so it should not be called with `()`. | Added a `battery` setter (accepting `0` to `100`) and changed `p.battery()` to `p.battery` |
+| Not a bug | `Phone p = new Phone ('Tecno', 50);` | Why is this line fine? Using the `new` keyword is optional in Dart; it looks unusual in modern Dart, but it is valid syntax. | (none) |
+
 ## Part 5
 My prediction:
 
