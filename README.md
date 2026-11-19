@@ -48,6 +48,13 @@ This is needed because `_balance` and `fare` are `int` values in Dart.
 
 ## Part 5
 My prediction:
+It will print:
+1
+5
+
+Why:
+- For `Bag a`: `a.add()` increases `_items` from `0` to `1`. Then `a.items = -5` is ignored because the setter only accepts values `>= 0`. So `print(a.items)` prints `1`.
+- For `BigBag b`: `b.add()` overrides `add()` and calls `super.add()` twice, adding `2` each time. Calling `b.add()` twice makes `_items` equal to `4`. Then `b.items = b.items + 1` sets `_items` to `5` (`5 >= 0` is valid). So `print(b.items)` prints `5`.
 
 Real output:
 
