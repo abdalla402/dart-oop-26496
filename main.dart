@@ -82,7 +82,7 @@ void main() {
   // Starting balance = 1960 RWF, Bus fare = 296 RWF, Discount = 16%
 
   // EXAMPLE: create a card and test the setter
-  BusCard card = BusCard('Ama', 1000);
+  BusCard card = BusCard('abdallah', 1960);
   card.owner = 'Al'; // refused: name too short
   card.showInfo();
 
